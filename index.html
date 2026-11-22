@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy 7th Monthsary, Wife 💌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ffc8dd; --pink-d:#ff8fb8; --rose:#e0568c; --cream:#fff8ef; --lav:#cdb4ff;
+    --blue:#bde0fe; --butter:#fff1a8; --ink:#5b3a4a; --paper:#fffdf8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Quicksand',sans-serif;color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 10%,#ffe5ef 0,transparent 40%),
+      radial-gradient(circle at 85% 30%,#e8dcff 0,transparent 40%),
+      radial-gradient(circle at 20% 80%,#d9efff 0,transparent 40%),
+      var(--cream);
+    background-attachment:fixed;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  h1,h2{font-family:'Fredoka',sans-serif;font-weight:600}
+  .hand{font-family:'Caveat',cursive}
+  section{max-width:960px;margin:0 auto;padding:72px 18px;position:relative;text-align:center;z-index:1}
+  h2{font-size:clamp(1.7rem,6vw,2.6rem);color:var(--rose);margin-bottom:8px}
+  .sub{font-family:'Caveat',cursive;font-size:clamp(1.25rem,4.5vw,1.6rem);margin-bottom:32px;opacity:.85}
+
+  #hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .fh{position:absolute;bottom:-40px;animation:rise linear forwards;opacity:.7}
+  @keyframes rise{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+
+  /* hero */
+  .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:60px}
+  .hero .tag{font-family:'Caveat',cursive;font-size:clamp(1.3rem,5vw,1.7rem);background:var(--butter);padding:4px 18px;border-radius:6px;transform:rotate(-3deg);box-shadow:0 3px 0 #e9d97a;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.3rem,10vw,5rem);line-height:1.08;color:var(--rose);text-shadow:3px 3px 0 #fff;max-width:11em}
+  .hero h1 .w{display:inline-block;white-space:nowrap}
+  .hero h1 span.c{display:inline-block;animation:bob 2.4s ease-in-out infinite}
+  .hero h1 span.c:nth-child(2n){animation-delay:.3s}
+  @keyframes bob{50%{transform:translateY(-8px)}}
+  .hero p{font-size:clamp(1rem,3.8vw,1.15rem);margin-top:18px;max-width:460px;line-height:1.5}
+  .btn{font-family:'Fredoka',sans-serif;font-size:1.05rem;border:none;cursor:pointer;padding:13px 28px;border-radius:999px;background:var(--pink-d);color:#fff;box-shadow:0 5px 0 var(--rose);transition:transform .1s,box-shadow .1s;margin-top:26px;touch-action:manipulation}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--rose)}
+  .scroll{margin-top:34px;font-size:2rem;animation:bob 1.6s infinite}
+  .stick{position:absolute;font-size:clamp(1.6rem,6vw,2.4rem);animation:bob 3s infinite}
+
+  /* counter */
+  .counter{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .tile{background:var(--paper);border:3px dashed var(--pink-d);border-radius:20px;padding:14px 10px;min-width:92px;flex:0 1 110px;box-shadow:0 6px 0 var(--pink)}
+  .tile b{display:block;font-family:'Fredoka';font-size:clamp(1.8rem,7vw,2.4rem);color:var(--rose)}
+  .tile small{font-size:.8rem;text-transform:uppercase;letter-spacing:1px}
+
+  /* envelope + letter */
+  .env{width:min(320px,85vw);height:210px;margin:0 auto;position:relative;cursor:pointer;transition:transform .3s}
+  .env:hover{transform:scale(1.03) rotate(-1deg)}
+  .env .body{position:absolute;inset:0;background:var(--pink);border-radius:10px;box-shadow:0 10px 25px rgba(224,86,140,.3)}
+  .env .flap{position:absolute;top:0;left:0;right:0;height:110px;background:var(--pink-d);clip-path:polygon(0 0,100% 0,50% 100%);border-radius:10px 10px 0 0}
+  .env .seal{position:absolute;top:78px;left:50%;transform:translateX(-50%);font-size:2.2rem;z-index:2;animation:bob 1.8s infinite}
+  .env .hint{position:absolute;bottom:14px;width:100%;font-family:'Caveat';font-size:1.5rem;color:#fff}
+  .letter{display:none;max-width:580px;margin:0 auto;background:var(--paper);padding:30px 24px;border-radius:6px;text-align:left;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);transform:rotate(-1deg);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,#f3d9e4 32px);line-height:32px;font-family:'Caveat';font-size:clamp(1.25rem,4.6vw,1.55rem)}
+  .letter.open{display:block;animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(30px) scale(.9)}}
+  .letter .sig{text-align:right;margin-top:6px}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:28px 20px;justify-items:center}
+  .pol{background:#fff;padding:10px 10px 6px;width:100%;max-width:230px;box-shadow:0 8px 18px rgba(0,0,0,.13);position:relative;transition:transform .25s;cursor:pointer;border:none;font:inherit;color:inherit;touch-action:manipulation}
+  .pol:nth-child(4n+1){transform:rotate(-3.5deg)} .pol:nth-child(4n+2){transform:rotate(2.5deg)}
+  .pol:nth-child(4n+3){transform:rotate(-2deg)}   .pol:nth-child(4n){transform:rotate(3.5deg)}
+  .pol:hover,.pol:focus-visible{transform:rotate(0) scale(1.06);z-index:3;outline:none}
+  .pol .img{aspect-ratio:1/1;background:var(--blue);overflow:hidden}
+  .pol .img img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+  .pol .cap{font-family:'Caveat';font-size:1.4rem;padding:6px 0 2px;line-height:1.1}
+  .pol::before{content:"";position:absolute;top:-11px;left:50%;width:64px;height:22px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,241,168,.85)}
+
+  /* lightbox */
+  #lb{position:fixed;inset:0;background:rgba(91,58,74,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;flex-direction:column;gap:10px}
+  #lb.show{display:flex}
+  #lb .frame{background:#fff;padding:12px 12px 8px;border-radius:4px;max-width:min(94vw,620px);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+  #lb img{max-height:68vh;max-height:68svh;width:auto;margin:0 auto;object-fit:contain}
+  #lb .cap{font-family:'Caveat';font-size:1.7rem;padding-top:6px}
+  #lb button{position:absolute;border:none;background:rgba(255,255,255,.92);color:var(--rose);width:46px;height:46px;border-radius:50%;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  #lb .x{top:max(14px,env(safe-area-inset-top));right:14px}
+  #lb .p{left:10px;top:50%;transform:translateY(-50%)} #lb .n{right:10px;top:50%;transform:translateY(-50%)}
+  #lb .count{color:#fff;font-size:.9rem;opacity:.8}
+
+  /* reasons */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
+  .card{perspective:800px;height:150px;cursor:pointer;touch-action:manipulation}
+  .card>div{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+  .card.flip>div{transform:rotateY(180deg)}
+  .card .f,.card .b{position:absolute;inset:0;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 6px 0 rgba(0,0,0,.08)}
+  .card .f{background:var(--pink);font-family:'Fredoka';font-size:1.25rem;color:#fff;flex-direction:column;gap:4px}
+  .card:nth-child(3n+2) .f{background:var(--lav)} .card:nth-child(3n) .f{background:#9ccbf5}
+  .card .b{background:var(--paper);transform:rotateY(180deg);font-family:'Caveat';font-size:1.45rem;line-height:1.2;border:3px dashed var(--pink-d)}
+
+  /* memory game */
+  .game{max-width:560px;margin:0 auto;background:var(--paper);border-radius:24px;padding:20px 14px 22px;box-shadow:0 8px 0 var(--pink)}
+  .levels{display:flex;gap:8px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+  .lv{font-family:'Fredoka';font-size:.95rem;border:2px solid var(--pink-d);background:#fff;color:var(--rose);padding:6px 14px;border-radius:999px;cursor:pointer;touch-action:manipulation}
+  .lv.on{background:var(--pink-d);color:#fff}
+  .stats{display:flex;justify-content:center;gap:16px;font-family:'Fredoka';font-size:.95rem;margin-bottom:12px;flex-wrap:wrap}
+  .stats span b{color:var(--rose)}
+  .board{display:grid;gap:8px;grid-template-columns:repeat(var(--cols,4),1fr);max-width:480px;margin:0 auto}
+  .mc{aspect-ratio:1/1;perspective:600px;cursor:pointer;touch-action:manipulation;border:none;background:none;padding:0}
+  .mc .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+  .mc.up .in{transform:rotateY(180deg)}
+  .mc .bk,.mc .fr{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+  .mc .bk{background:
+      radial-gradient(circle at 30% 30%,#fff 0 6%,transparent 7%),
+      linear-gradient(135deg,var(--pink-d),var(--lav));
+    display:flex;align-items:center;justify-content:center;font-size:clamp(1.2rem,6vw,1.9rem);box-shadow:0 4px 0 rgba(224,86,140,.35);border:3px solid #fff}
+  .mc .fr{transform:rotateY(180deg);border:3px solid #fff;background:#fff;box-shadow:0 4px 0 rgba(0,0,0,.08)}
+  .mc .fr img{width:100%;height:100%;object-fit:cover}
+  .mc.done .fr{border-color:var(--pink-d);animation:glow .8s}
+  .mc.done{cursor:default}
+  @keyframes glow{40%{transform:rotateY(180deg) scale(1.1)}}
+  .gmsg{font-family:'Caveat';font-size:1.5rem;color:var(--rose);min-height:36px;margin-top:12px}
+  .win{display:none;margin-top:10px}
+  .win.show{display:block;animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+  .win h3{font-family:'Fredoka';color:var(--rose);font-size:1.4rem}
+  .win .btn{margin-top:12px}
+
+  /* vinyl */
+  .player{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .deck{position:relative;width:min(300px,78vw);aspect-ratio:1/1;cursor:pointer;touch-action:manipulation}
+  .rec{position:absolute;inset:0;border-radius:50%;
+    background:
+      radial-gradient(circle,transparent 0 31%,rgba(255,255,255,.07) 31.5% 32%,transparent 32.5% 40%,rgba(255,255,255,.06) 40.5% 41%,transparent 41.5% 50%,rgba(255,255,255,.06) 50.5% 51%,transparent 51.5%),
+      conic-gradient(from 20deg,#2b2030,#443349,#2b2030 25%,#443349 50%,#2b2030 75%,#443349);
+    box-shadow:0 14px 30px rgba(91,58,74,.35),inset 0 0 0 6px #1d1522;
+    animation:spin 4s linear infinite;animation-play-state:paused}
+  .deck.playing .rec{animation-play-state:running}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .lab{position:absolute;left:32%;top:32%;width:36%;height:36%;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%,#fff 0 7%,transparent 8%),linear-gradient(135deg,var(--pink-d),var(--butter));
+    display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Caveat';font-size:clamp(.9rem,3.6vw,1.15rem);color:#fff;line-height:1;padding:12%;text-shadow:0 1px 0 rgba(0,0,0,.2)}
+  .arm{position:absolute;right:-6%;top:-4%;width:46%;height:8px;background:#e9dbe2;border-radius:6px;transform-origin:92% 50%;transform:rotate(18deg);transition:transform .8s;box-shadow:0 3px 6px rgba(0,0,0,.2)}
+  .arm::after{content:"";position:absolute;left:-6px;top:-4px;width:18px;height:16px;background:var(--rose);border-radius:4px}
+  .deck.playing .arm{transform:rotate(36deg)}
+  .vbtn{margin-top:4px}
+  .now{font-family:'Caveat';font-size:1.6rem;color:var(--rose)}
+  .notes{font-size:1.6rem;height:34px}
+  .picker{display:none;font-size:.9rem}
+  .picker.show{display:block}
+  .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(30px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:.95rem;opacity:0;transition:.3s;z-index:60;pointer-events:none;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%)}
+
+  /* floating music button */
+  #mini{position:fixed;top:max(12px,env(safe-area-inset-top));right:12px;z-index:40;width:46px;height:46px;border-radius:50%;border:3px solid #fff;background:var(--pink-d);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 0 var(--rose);touch-action:manipulation}
+  #mini.playing{animation:bob 1.2s infinite}
+
+  footer{text-align:center;padding:30px 20px calc(50px + env(safe-area-inset-bottom));font-family:'Caveat';font-size:1.5rem;position:relative;z-index:1}
+
+  @media (max-width:420px){
+    section{padding:56px 14px}
+    .board{gap:6px}
+    .mc .bk,.mc .fr{border-radius:9px;border-width:2px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<button id="mini" aria-label="Play or pause music" title="Music">🎵</button>
+<div class="toast" id="toast"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="tag" id="tag"></div>
+  <h1 id="title"></h1>
+  <p>This for myyy prettyyy wifeeee mwhehehehe HAPPPYY MONTHSARY ASAWAAA KOOOO!!</p>
+  <button class="btn" id="openBtn">Open me 💖</button>
+  <div class="scroll">⌄</div>
+  <span class="stick" style="top:12%;left:6%">🌸</span>
+  <span class="stick" style="top:20%;right:16%;animation-delay:.5s">🧸</span>
+  <span class="stick" style="bottom:12%;left:8%;animation-delay:1s">⭐</span>
+  <span class="stick" style="bottom:18%;right:7%;animation-delay:1.4s">🍓</span>
+</section>
+
+<!-- ============ COUNTER ============ -->
+<section id="time">
+  <h2>Our time together</h2>
+  <p class="sub">and every second has been my favorite</p>
+  <div class="counter" id="counter"></div>
+  <p class="sub" style="margin-top:26px;margin-bottom:0">…and I'd happily do it all again 🥹</p>
+</section>
+
+<!-- ============ LETTER ============ -->
+<section id="letter">
+  <h2>A letter for you</h2>
+  <p class="sub">tap the envelope</p>
+  <div class="env" id="env" role="button" tabindex="0">
+    <div class="body"></div><div class="flap"></div><div class="seal">💌</div>
+    <div class="hint">open me!</div>
+  </div>
+  <div class="letter" id="letterBox">
+    <p id="letterText"></p>
+    <p class="sig" id="sig"></p>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="memories">
+  <h2>Our little memories</h2>
+  <p class="sub">tap a polaroid to see it bigger 📸</p>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- ============ REASONS ============ -->
+<section id="reasons">
+  <h2>Reasons I love you</h2>
+  <p class="sub">flip the cards (there are a lot more, I ran out of space)</p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- ============ MEMORY GAME ============ -->
+<section id="game">
+  <h2>Memory match 💞</h2>
+  <p class="sub">OUR FAVORITE GAMEEE, find the pairs of our memories maaa wife!</p>
+  <div class="game">
+    <div class="levels" id="levels"></div>
+    <div class="stats">
+      <span>Moves: <b id="moves">0</b></span>
+      <span>Pairs: <b id="pairs">0</b>/<b id="total">0</b></span>
+      <span>Time: <b id="time2">0:00</b></span>
+      <span>Best: <b id="best">–</b></span>
+    </div>
+    <div class="board" id="board"></div>
+    <div class="gmsg" id="gmsg">tap a card to start 💗</div>
+    <div class="win" id="win">
+      <h3>You found all our memories! 🎉</h3>
+      <p class="hand" style="font-size:1.5rem" id="winText"></p>
+      <button class="btn" id="again">Play again 💕</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VINYL ============ -->
+<section id="song">
+  <h2>Our song 🎶</h2>
+  <p class="sub">tap the record and let it play</p>
+  <div class="player">
+    <div class="deck" id="deck" role="button" tabindex="0" aria-label="Play or pause our song">
+      <div class="rec"><div class="lab" id="lab">our song</div></div>
+      <div class="arm"></div>
+    </div>
+    <div class="notes" id="notes"></div>
+    <div class="now" id="now"></div>
+    <button class="btn vbtn" id="playBtn">▶ Play</button>
+    <label class="picker" id="picker">🎵 Choose a song from this device: <input type="file" accept="audio/*" id="songFile"></label>
+  </div>
+  <audio id="audio" preload="auto" loop></audio>
+</section>
+
+<footer id="foot"></footer>
+
+<div id="lb" aria-modal="true" role="dialog">
+  <button class="x" id="lbx" aria-label="Close">✕</button>
+  <button class="p" id="lbp" aria-label="Previous">‹</button>
+  <button class="n" id="lbn" aria-label="Next">›</button>
+  <div class="frame"><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div>
+  <div class="count" id="lbcount"></div>
+</div>
+
+<script>
+/* ==========================================================
+   ✏️  EDIT THIS PART
+   ========================================================== */
+const CONFIG = {
+  herName:  "Wife",
+  yourName: "Your Husband",
+  startDate:"2026-04-22T00:00:00",   // the day she said yes 💍
+  monthsary: 7,
+
+  // 🎵 Put your song file next to index.html and set its name here (mp3 / m4a / ogg)
+  song: "Be With You.mp3",
+  songTitle: "Be With You",
+
+  letter:
+   "For maaa wifeeee,\n\nHELLURRR HELURRR MAA WIFEEEE Happpyyyy 7th monthsaryyyy!! We've come saurr farr na and i've been the luckiest man ever.\n\n" +
+   "Thank you for being patient with me, for laughing at my silly faces, and for being my favorite person to do absolutely nothing with WHAHAHAHAHA. " +
+   "Every random quests, every sunsets, every random day with you is my favorite memory and my favorite time of the day.\n\n" +
+   "iloveeeyouuusaurrmcuhhh today, tomorrow, and for all the monthsaries to come ILOVEEEYOUUALWAYYSSSS mwaaaapsss mwwaaappssss.",
+
+  // 19 photos in /img  (edit the captions to make them yours)
+  memories: [
+    "silly bears", "golden hour daw", "WHAHAHHAHA favee", "tito piccccc!!",
+    "photobooth day", "avatarrr, get it bluee baa", "kapeng walang yelo", "twiinnnyyyy",
+    "cutiiesss", "patay gutom twin", "broke ahh jog nalang", "foreshadowing mwhehehe",
+    "shes dating a genggengg", "cutiee babiess", "mirror, mirror", "art & Snoopy",
+    "lazy day", "chilling with my favorite", "basic jog"
+  ],
+
+  reasons: [
+    ["Your laugh",        "It's my favorite sound in the entire world mwhehehehehe."],
+    ["Your kindness",     "You make everyone around you feel safe."],
+    ["Your smile",        "It fixes my worst days instantly likee frfrrr."],
+    ["How you care",      "You notice the little things. Always very observant asawa ko eh."],
+    ["Your silly side",   "Only I get to see the chaotic you and I treasure it mwhehehehe."],
+    ["You're you",        "Nothing to add. Just you."],
+  ],
+
+  matchMessages: ["Aww, that's us! 💕","Cutest pair! 🥰","Good memory, wife! 🧠💗","Yay! 🎉","I remember that day! 😍"],
+  footer:"Made by your husband"
+};
+/* ========================================================== */
+
+const $ = id => document.getElementById(id);
+const PHOTOS = CONFIG.memories.map((cap,i)=>({src:`img/${String(i+1).padStart(2,'0')}.jpg`, cap}));
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('show'),2600)}
+
+// ---- hero
+$('tag').textContent = `our ${CONFIG.monthsary}th monthsary 🎉`;
+$('title').innerHTML = `Happy ${CONFIG.monthsary} Months, ${CONFIG.herName} 💗`.split(' ').map(w=>
+  `<span class="w">${[...w].map(c=>`<span class="c">${c}</span>`).join('')}</span>`).join(' ');
+document.title = `Happy ${CONFIG.monthsary}th Monthsary, ${CONFIG.herName} 💌`;
+
+// ---- floating hearts
+const heartsEl = $('hearts');
+const emojis = ['💗','💖','🌸','💕','✨','🤍','🌷'];
+function spawn(){
+  const h = document.createElement('div');
+  h.className = 'fh';
+  h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+  h.style.left = Math.random()*100 + 'vw';
+  h.style.fontSize = (14 + Math.random()*22) + 'px';
+  h.style.animationDuration = (7 + Math.random()*8) + 's';
+  heartsEl.appendChild(h);
+  setTimeout(()=>h.remove(), 16000);
+}
+setInterval(spawn, 1000);
+for(let i=0;i<6;i++) setTimeout(spawn, i*300);
+const burst = n => { for(let i=0;i<n;i++) setTimeout(spawn, i*70) };
+
+// ---- counter (calendar months + days + live clock)
+const start = new Date(CONFIG.startDate);
+function tick(){
+  const now = new Date();
+  let m = (now.getFullYear()-start.getFullYear())*12 + now.getMonth()-start.getMonth();
+  let anchor = new Date(start); anchor.setMonth(start.getMonth()+m);
+  if(anchor > now){ m--; anchor = new Date(start); anchor.setMonth(start.getMonth()+m); }
+  if(m<0){ m=0; anchor=start; }
+  let diff = Math.max(0, now - anchor);
+  const d = Math.floor(diff/86400000); diff -= d*86400000;
+  const h = Math.floor(diff/3600000);  diff -= h*3600000;
+  const mi = Math.floor(diff/60000);   diff -= mi*60000;
+  const s = Math.floor(diff/1000);
+  $('counter').innerHTML = [[m,'months'],[d,'days'],[h,'hours'],[mi,'minutes'],[s,'seconds']]
+    .map(([n,l])=>`<div class="tile"><b>${n}</b><small>${l}</small></div>`).join('');
+}
+tick(); setInterval(tick, 1000);
+
+// ---- letter
+function openLetter(){
+  $('env').style.display = 'none';
+  $('letterText').innerHTML = CONFIG.letter.replace(/\n/g,'<br>');
+  $('sig').textContent = `Alwayysss yoursss, ${CONFIG.yourName} `;
+  $('letterBox').classList.add('open');
+  burst(14);
+}
+$('env').addEventListener('click', openLetter);
+$('env').addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter()} });
+
+// ---- gallery + lightbox
+const gallery = $('gallery');
+PHOTOS.forEach((p,i)=>{
+  const b = document.createElement('button');
+  b.className = 'pol';
+  b.innerHTML = `<div class="img"><img src="${p.src}" alt="${p.cap}" loading="lazy" decoding="async"></div><div class="cap">${p.cap}</div>`;
+  b.addEventListener('click', ()=>showLB(i));
+  gallery.appendChild(b);
+});
+let lbi = 0;
+function showLB(i){
+  lbi = (i+PHOTOS.length)%PHOTOS.length;
+  $('lbimg').src = PHOTOS[lbi].src; $('lbimg').alt = PHOTOS[lbi].cap;
+  $('lbcap').textContent = PHOTOS[lbi].cap;
+  $('lbcount').textContent = `${lbi+1} / ${PHOTOS.length}`;
+  $('lb').classList.add('show');
+}
+const closeLB = () => $('lb').classList.remove('show');
+$('lbx').onclick = closeLB;
+$('lbp').onclick = e=>{e.stopPropagation();showLB(lbi-1)};
+$('lbn').onclick = e=>{e.stopPropagation();showLB(lbi+1)};
+$('lb').addEventListener('click', e=>{ if(e.target===$('lb')) closeLB(); });
+document.addEventListener('keydown', e=>{
+  if(!$('lb').classList.contains('show')) return;
+  if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') showLB(lbi-1); if(e.key==='ArrowRight') showLB(lbi+1);
+});
+let tx=null;
+$('lb').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+$('lb').addEventListener('touchend',e=>{
+  if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; tx=null;
+  if(Math.abs(dx)>50) showLB(lbi + (dx<0?1:-1));
+});
+
+// ---- reasons
+CONFIG.reasons.forEach(([front, back])=>{
+  const c = document.createElement('div');
+  c.className = 'card';
+  c.innerHTML = `<div><div class="f"><span>💌</span>${front}</div><div class="b">${back}</div></div>`;
+  c.addEventListener('click', ()=>c.classList.toggle('flip'));
+  $('cards').appendChild(c);
+});
+
+// ---- memory match game
+const LEVELS = [
+  {name:'Easy 🌷',   pairs:6,  cols:4},
+  {name:'Medium 🌸', pairs:8,  cols:4},
+  {name:'Hard 💐',   pairs:10, cols:5},
+];
+let lvl = 1, first=null, lock=false, moves=0, found=0, sec=0, timer=null, started=false;
+const fmt = s => `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+const bestKey = () => 'mm-best-'+LEVELS[lvl].pairs;
+function getBest(){ try{ return localStorage.getItem(bestKey()) }catch(e){ return null } }
+function setBest(v){ try{ localStorage.setItem(bestKey(), v) }catch(e){} }
+
+function renderLevels(){
+  $('levels').innerHTML = LEVELS.map((l,i)=>`<button class="lv ${i===lvl?'on':''}" data-i="${i}">${l.name}</button>`).join('');
+  $('levels').querySelectorAll('.lv').forEach(b=>b.addEventListener('click',()=>{lvl=+b.dataset.i;renderLevels();newGame()}));
+}
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a }
+function newGame(){
+  clearInterval(timer); started=false; first=null; lock=false; moves=0; found=0; sec=0;
+  const L = LEVELS[lvl];
+  const picks = shuffle([...PHOTOS.keys()]).slice(0,L.pairs);
+  const deck = shuffle(picks.flatMap(i=>[i,i]));
+  const board = $('board');
+  board.style.setProperty('--cols', L.cols);
+  board.innerHTML = deck.map((i,k)=>`<button class="mc" data-i="${i}" aria-label="Card ${k+1}"><div class="in"><div class="bk">💗</div><div class="fr"><img src="${PHOTOS[i].src}" alt="" decoding="async"></div></div></button>`).join('');
+  board.querySelectorAll('.mc').forEach(c=>c.addEventListener('click',()=>flip(c)));
+  $('moves').textContent=0; $('pairs').textContent=0; $('total').textContent=L.pairs; $('time2').textContent='0:00';
+  const b = getBest(); $('best').textContent = b ? `${b} moves` : '–';
+  $('gmsg').textContent='tap a card to start 💗'; $('win').classList.remove('show');
+}
+function flip(c){
+  if(lock || c.classList.contains('up') || c.classList.contains('done')) return;
+  if(!started){ started=true; timer=setInterval(()=>{sec++;$('time2').textContent=fmt(sec)},1000); }
+  c.classList.add('up');
+  if(!first){ first=c; return; }
+  moves++; $('moves').textContent=moves;
+  const a=first, b=c; first=null;
+  if(a.dataset.i===b.dataset.i){
+    a.classList.add('done'); b.classList.add('done'); found++;
+    $('pairs').textContent=found;
+    $('gmsg').textContent = CONFIG.matchMessages[Math.floor(Math.random()*CONFIG.matchMessages.length)];
+    burst(4);
+    if(found===LEVELS[lvl].pairs) win();
+  } else {
+    lock=true; $('gmsg').textContent='oops, try again 🙈';
+    setTimeout(()=>{a.classList.remove('up');b.classList.remove('up');lock=false},850);
+  }
+}
+function win(){
+  clearInterval(timer);
+  const best = +getBest();
+  let note = `${moves} moves in ${fmt(sec)}.`;
+  if(!best || moves<best){ setBest(moves); $('best').textContent=`${moves} moves`; note += ' New best! 🏆'; }
+  $('winText').textContent = note + ' Every memory with you is a winner, wife. 💕';
+  $('gmsg').textContent='';
+  $('win').classList.add('show');
+  burst(40);
+}
+$('again').addEventListener('click', newGame);
+renderLevels(); newGame();
+
+// ---- vinyl + music
+const audio = $('audio');
+let hasSong = true;
+audio.src = CONFIG.song;
+$('lab').textContent = CONFIG.songTitle;
+audio.addEventListener('error', ()=>{ hasSong=false; });
+let noteTimer=null;
+function setUI(on){
+  $('deck').classList.toggle('playing', on);
+  $('mini').classList.toggle('playing', on);
+  $('playBtn').textContent = on ? '❚❚ Pause' : '▶ Play';
+  $('now').textContent = on ? `now playing: ${CONFIG.songTitle}` : '';
+  clearInterval(noteTimer);
+  if(on){ const n=['🎵','🎶','💗','🎵','🎶']; let k=0; noteTimer=setInterval(()=>{ $('notes').textContent = n.slice(0,(k++%4)+1).join(' ') },500); }
+  else $('notes').textContent='';
+}
+async function toggleMusic(forcePlay){
+  if(!hasSong){ toast('The song isn\'t added yet 🎵'); return; }
+  try{
+    if(audio.paused || forcePlay===true){ await audio.play(); setUI(true); }
+    else { audio.pause(); setUI(false); }
+  }catch(e){ setUI(false); toast('Tap the record to play 🎵'); }
+}
+$('deck').addEventListener('click', ()=>toggleMusic());
+$('deck').addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMusic()} });
+$('playBtn').addEventListener('click', ()=>toggleMusic());
+$('mini').addEventListener('click', ()=>toggleMusic());
+audio.addEventListener('pause', ()=>setUI(false));
+audio.addEventListener('play', ()=>setUI(true));
+
+// "Open me" starts the music (a tap is allowed to start audio) and scrolls on
+$('openBtn').addEventListener('click', ()=>{
+  if(hasSong && audio.paused) toggleMusic(true);
+  $('time').scrollIntoView({behavior:'smooth'});
+});
+
+// For the husband only: add #edit to the link to pick a song file from your own device (not saved)
+function checkEdit(){ $('picker').classList.toggle('show', location.hash==='#edit') }
+checkEdit(); addEventListener('hashchange', checkEdit);
+$('songFile').addEventListener('change', e=>{
+  const f = e.target.files[0]; if(!f) return;
+  audio.src = URL.createObjectURL(f); hasSong=true; $('lab').textContent = f.name.replace(/\.[^.]+$/,'').slice(0,18);
+  toggleMusic(true);
+});
+
+// ---- footer
+$('foot').textContent = `${CONFIG.footer} · ${CONFIG.monthsary}th monthsary`;
+</script>
+</body>
+</html>
